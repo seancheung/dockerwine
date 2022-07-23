@@ -1,0 +1,25 @@
+FROM alpine:3.16
+LABEL maintainer="Sean Cheung <theoxuanx@gmail.com>"
+
+ARG ARCH=x86_64
+
+ENV WINEDLLOVERRIDES="mscoree,mshtml="
+ENV WINEPREFIX="/root/wine" 
+ENV SCREEN="0 1280x1024x8"
+ENV DISPLAY=":1"
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+
+RUN set -ex && \
+    echo $ARCH > /etc/apk/arch && \
+    echo "Installing dependencies..." && \
+    apk add --no-cache --allow-untrusted xvfb freetype supervisor wine && \
+    echo "Initializing wine..." && \
+    wineboot && \
+    wineserver -w && \
+    echo "Clean Up..." && \
+    rm -rf /var/cache/apk/*
+
+COPY supervisord.conf /etc/
+
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

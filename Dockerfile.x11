@@ -1,0 +1,12 @@
+FROM seancheung/dockerwine:wine
+LABEL maintainer="Sean Cheung <theoxuanx@gmail.com>"
+
+RUN set -ex && \
+    echo "Installing dependencies..." && \
+    apk add --no-cache --allow-untrusted x11vnc && \
+    echo "Clean Up..." && \
+    rm -rf /var/cache/apk/*
+
+COPY x11vnc.conf /etc/supervisor/conf.d/
+
+EXPOSE 5900
