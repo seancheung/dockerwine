@@ -3,10 +3,10 @@ LABEL maintainer="Sean Cheung <theoxuanx@gmail.com>"
 
 RUN set -ex && \
     echo "Installing dependencies..." && \
-    apk add --no-cache --allow-untrusted xvfb x11vnc && \
+    apk add --no-cache --allow-untrusted tigervnc && \
     echo "Clean Up..." && \
     rm -rf /var/cache/apk/*
 
-COPY x11vnc.conf /etc/supervisor/conf.d/
+COPY tigervnc.conf /etc/supervisor/conf.d/
 
 EXPOSE 5900

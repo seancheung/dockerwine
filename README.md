@@ -1,6 +1,6 @@
 # dockerwine
 
-Wine with xvfb/x11/noVNC over alpine in docker
+Wine with xvfb/x11/tigervnc/noVNC over alpine in docker
 
 > This is x86_64 version of wine only(i.e. wine64). Check [alpinewine](https://github.com/seancheung/alpinewine) if you need x86 version.
 
@@ -12,14 +12,15 @@ docker pull seancheung/dockerwine:<tag>
 
 ## Tags
 
-| tag    | description                         |
-| ------ | ----------------------------------- |
-| latest | i.e. novnc                           |
-| wine   | wine x86_64 + xvfb                  |
-| x11    | wine x86_64 + xvfb + x11vnc         |
-| novnc  | wine x86_64 + xvfb + x11vnc + novnc |
+| tag      | description                    |
+| -------- | ------------------------------ |
+| latest   | i.e. novnc                     |
+| wine     | wine x86_64                    |
+| x11      | wine x86_64 + xvfb + x11vnc    |
+| tigervnc | wine x86_64 + tigervnc         |
+| novnc    | wine x86_64 + tigervnc + novnc |
 
-> X11 is a VNC server. NoVNC is a VNC web client.
+> X11/tigervnc is a VNC server. NoVNC is a VNC web client.
 
 ## Environments
 
@@ -27,8 +28,8 @@ docker pull seancheung/dockerwine:<tag>
 | ---------------- | --------------- |
 | WINEDLLOVERRIDES | mscoree,mshtml= |
 | WINEPREFIX       | /root/wine      |
-| SCREEN           | 0 1280x1024x8   |
-| DISPLAY          | :1              |
+| SCREEN           | 0 1280x1024x16  |
+| DISPLAY          | :0              |
 | LANG             | en_US.UTF-8     |
 | LC_ALL           | en_US.UTF-8     |
 
@@ -68,15 +69,15 @@ docker exec mywine supervisorctl reload
 
 > For debugging purpose, add `environment=WINEDEBUG=warn+all`
 
-### X11
+### x11/tigervnc
 
-| port | description   |
-| ---- | ------------- |
-| 5900 | x11vnc server |
+| port | description         |
+| ---- | ------------------- |
+| 5900 | x11/tigervnc server |
 
 ### noVNC
 
-| port | description   |
-| ---- | ------------- |
-| 5900 | x11vnc server |
-| 8080 | noVNC         |
+| port | description         |
+| ---- | ------------------- |
+| 5900 | x11/tigervnc server |
+| 8080 | noVNC               |
