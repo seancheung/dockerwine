@@ -24,15 +24,15 @@ docker pull seancheung/dockerwine:<tag>
 
 ## Environments
 
-| Name             | default                      |
-| ---------------- | ---------------------------- |
-| WINEDLLOVERRIDES | mscoree,mshtml=              |
-| WINEPREFIX       | /root/wine                   |
-| SCREEN           | 0 1280x1024x16               |
-| DISPLAY          | :0                           |
-| LANG             | en_US.UTF-8                  |
-| LC_ALL           | en_US.UTF-8                  |
-| VNCPASS          | password for x11vnc/tigervnc |
+| Name             | default         |
+| ---------------- | --------------- |
+| WINEDLLOVERRIDES | mscoree,mshtml= |
+| WINEPREFIX       | /root/wine      |
+| SCREEN           | 0 1280x1024x16  |
+| DISPLAY          | :0              |
+| LANG             | en_US.UTF-8     |
+| LC_ALL           | en_US.UTF-8     |
+| VNCPASS          |                 |
 
 > WINEDLLOVERRIDES: Wine DLL overrides.
 
