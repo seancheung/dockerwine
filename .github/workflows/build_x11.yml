@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: ["main"]
-    paths: ["Dockerfile.x11", "x11vnc.conf"]
+    paths: ["Dockerfile.x11", "x11vnc.conf", "x11.entrypoint.sh"]
 
 jobs:
   build_push_image:

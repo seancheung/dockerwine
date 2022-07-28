@@ -24,18 +24,21 @@ docker pull seancheung/dockerwine:<tag>
 
 ## Environments
 
-| Name             | default         |
-| ---------------- | --------------- |
-| WINEDLLOVERRIDES | mscoree,mshtml= |
-| WINEPREFIX       | /root/wine      |
-| SCREEN           | 0 1280x1024x16  |
-| DISPLAY          | :0              |
-| LANG             | en_US.UTF-8     |
-| LC_ALL           | en_US.UTF-8     |
+| Name             | default                      |
+| ---------------- | ---------------------------- |
+| WINEDLLOVERRIDES | mscoree,mshtml=              |
+| WINEPREFIX       | /root/wine                   |
+| SCREEN           | 0 1280x1024x16               |
+| DISPLAY          | :0                           |
+| LANG             | en_US.UTF-8                  |
+| LC_ALL           | en_US.UTF-8                  |
+| VNCPASS          | password for x11vnc/tigervnc |
 
 > WINEDLLOVERRIDES: Wine DLL overrides.
 
 > SCREEN: This option creates screen screennum and sets its width, height, and depth to W, H, and D respectively. By default, only screen 0 exists and has the dimensions 1280x1024x8.
+
+> VNCPASS: The VNC server will not be exposed if no password set.
 
 ## Usage
 

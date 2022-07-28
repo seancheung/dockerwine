@@ -8,5 +8,7 @@ RUN set -ex && \
     rm -rf /var/cache/apk/*
 
 COPY x11vnc.conf /etc/supervisor/conf.d/
+COPY x11.entrypoint.sh /entrypoint.sh
 
-EXPOSE 5900
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
